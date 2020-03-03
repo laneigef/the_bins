@@ -11356,3 +11356,21 @@ a.text-dark:focus {
   }
 }
 
+
+.col-2-4 {
+  -webkit-box-flex: 0;
+  flex: 0 0 20%;
+  max-width: 19.4%;
+  margin: 0.3%;
+  text-align: center;
+  line-height: 250%;
+  font-size: 30px;
+}
+
+.bg-dafult {
+  background-color: #6cb2eb !important;
+}
+
+.bg-atari {
+  background-color: #ee827c !important;
+}

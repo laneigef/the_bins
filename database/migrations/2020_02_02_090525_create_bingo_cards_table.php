@@ -17,8 +17,8 @@ class CreateBingoCardsTable extends Migration
             $table->bigIncrements('id');
             $table->string('card_array');
             $table->unsignedBigInteger('bingo_issuers_id');
-            $table->boolean('delete_flag');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('bingo_issuers_id')->references('id')->on('bingo_issuers');
         });

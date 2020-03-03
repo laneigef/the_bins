@@ -18,9 +18,10 @@ class CreateBingoIssuersTable extends Migration
             $table->string('login_id')->unique();
             $table->string('password');
             $table->rememberToken();
-            $table->integer('bingo_type');
-            $table->boolean('delete_flag');
+            $table->integer('bingo_type')->nullable();
+            $table->boolean('self_issue_flag')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

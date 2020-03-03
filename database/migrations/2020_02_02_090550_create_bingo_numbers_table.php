@@ -16,10 +16,9 @@ class CreateBingoNumbersTable extends Migration
         Schema::create('bingo_numbers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('bingo_number');
-            $table->dateTime('bingo_time');
             $table->unsignedBigInteger('bingo_issuers_id');
-            $table->boolean('delete_flag');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('bingo_issuers_id')->references('id')->on('bingo_issuers');
         });

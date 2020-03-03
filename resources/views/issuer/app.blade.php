@@ -25,7 +25,7 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    WebBingo
+    WebBingo ダッシュボード
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -44,13 +44,13 @@ The above copyright notice and this permission notice shall be included in all c
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="/" class="simple-text logo-mini">
+        <a href="{{ route('issuer.index') }}" class="simple-text logo-mini">
           <div class="logo-image-small">
             <!-- <img src="../assets/img/logo-small.png"> -->
           </div>
         </a>
-        <a href="/" class="simple-text logo-normal">
-          Bingo Game
+        <a href="{{ route('issuer.index') }}" class="simple-text logo-normal">
+          ダッシュボード
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
           </div> -->
@@ -59,17 +59,34 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="{{ route('index') }}">
+            <a href="{{ route('issuer.index') }}">
               <i class="nc-icon nc-tile-56"></i>
-              <p>トップ画面</p>
+              <p>発行済みカード一覧</p>
             </a>
           </li>
           <li>
-            <a href="{{ route('signup') }}">
-              <i class="nc-icon nc-single-02"></i>
-              <p>ビンゴ発行者登録/ログイン</p>
+            <a href="{{ route('issuer.number') }}">
+              <i class="nc-icon nc-diamond"></i>
+              <p>ビンゴ番号指定</p>
             </a>
           </li>
+          <li>
+            <a href="{{ route('issuer.account') }}">
+              <i class="nc-icon nc-single-02"></i>
+              <p>アカウント情報変更</p>
+            </a>
+          </li>
+          <li class="active-pro">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+              <i class="nc-icon nc-spaceship"></i>
+              <p>ログアウト</p>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
+          </li>
+        </ul>
       </div>
     </div>
       @yield('content')
